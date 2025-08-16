@@ -1,0 +1,416 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Ödev2
+{
+    internal class Program1
+    {
+        static void Main(string[] args)
+        {
+            #region MyRegion
+            //Girilen sayının tek toplamı ve çift toplamını yazdıran program:
+
+            Console.WriteLine("Bir sayı giriniz:");
+            int sayi = int.Parse(Console.ReadLine());
+            int ciftToplam = 0;
+            int tekToplam = 0;
+            int i = 1;
+
+
+            while (i <= sayi)
+            {
+                if (i % 2 == 0)
+                    ciftToplam += i;
+                else
+                    tekToplam += i;
+
+                i++;
+            }
+            Console.WriteLine("Çift sayıların toplamı: " + ciftToplam);
+            Console.WriteLine("Tek sayıların toplamı: " + tekToplam);
+
+            Console.ReadKey();
+            #endregion
+
+
+            #region MyRegion
+
+            //122333444455555
+
+            int i = 1;
+
+            while (i <= 5)
+            {
+                int j = 1;
+
+                while (j <= i)
+                {
+                    Console.Write(i);
+                    j++;
+                }
+
+                Console.WriteLine();
+                i++;
+            }
+            #endregion
+
+
+
+            #region MyRegion
+
+            // ***
+            // ***
+            // ***
+            // ***
+
+            //4 dış döngü, 3 iç döngü
+
+            int i = 1;
+            while (i <= 4)
+            {
+                int j = 1;
+                while (j <= 3)
+                {
+                    Console.Write("*");
+                    j++;
+                }
+
+                Console.WriteLine();
+                i++;
+            }
+
+            #endregion
+
+
+
+            #region MyRegion
+            //    *
+            //   **
+            //  ***
+            // ****
+            //*****    3 olmalı. boşluk, yıldız, iç arttırma. dış döngü 5, iç artan, boşluk azalan.
+
+            int bosluk = 4;
+            while (bosluk <= 1)
+            {
+                Console.Write(" ");
+                bosluk--;
+
+                int j = 1;
+                while (j <= 5)
+                {
+                    Console.Write("*");
+                    j++;
+                }
+
+            }
+            #endregion
+
+            #region -//-
+
+            /*  * 
+               ***
+              *****
+             *******
+            *********
+               ***
+               ***
+               ***     2 döngü. boşluk azalıyo, yıldız artıyo. üçlü sap. */
+            
+                int bosluk = 4;
+                int yildiz = 1;
+                int satir = 1;
+
+                while (satir <= 5)
+                {
+                    int i = 1;
+                    while (i <= bosluk)
+                    {
+                        Console.Write(" ");
+                        i++;
+                    }
+
+                    int j = 1;
+                    while (j <= yildiz)
+                    {
+                        Console.Write("*");
+                        j++;
+                    }
+
+                    Console.WriteLine();
+                    bosluk--;
+                    yildiz += 2;
+                    satir++;
+                }
+
+                int dikdortgenSatir = 1;
+                while (dikdortgenSatir <= 3)
+                {
+                    int bosluk2 = 3;
+                    int k = 1;
+                    while (k <= bosluk2)
+                    {
+                        Console.Write(" ");
+                        k++;
+                    }
+
+                    int yildiz2 = 3;
+                    int m = 1;
+                    while (m <= yildiz2)
+                    {
+                        Console.Write("*");
+                        m++;
+                    }
+
+                    Console.WriteLine();
+                    dikdortgenSatir++;
+                }
+
+
+            #endregion
+
+
+
+            #region
+            /*   *
+                ***
+               *****
+              *******
+               *****
+                ***
+                 *
+
+                */
+            int bosluk = 5;
+            int yildiz = 1;
+            int satir = 1;
+
+            while (satir <= 4)
+            {
+                int i = 1;
+                while (i <= bosluk)
+                {
+                    Console.Write(" ");
+                    i++;
+                }
+
+                int j = 1;
+                while (j <= yildiz)
+                {
+                    Console.Write("*");
+                    j++;
+                }
+
+                Console.WriteLine();
+                bosluk--;
+                yildiz += 2;
+                satir++;
+            }
+
+
+            #endregion
+
+
+
+
+            #region
+            // 1 1 2 3 5 8 (Fibonacci)
+
+            int ilk = 1;
+            int ikinci = 1;
+            int sayac = 1;
+            int kacSayi = 6;
+
+            while (sayac <= kacSayi)
+            {
+                Console.Write(ilk + " ");
+                int sonraki = ilk + ikinci;
+                ilk = ikinci;
+                ikinci = sonraki;
+                sayac++;
+            }
+
+
+
+
+            #endregion
+
+            #region
+            // Kullanıcının yazdığı sayı içerisindeki asal sayıları yazdır
+
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            int i = 2;
+
+            Console.WriteLine("Girilen sayı içerisindeki asal sayılar:");
+
+            while (i <= sayi)
+    {
+            if (AsalMi(i))
+        {
+             Console.Write(i + " ");
+        }
+             i++;
+    }
+
+            bool AsalMi(int sayi)
+        {
+            if (sayi < 2)
+                return false;
+
+            for (int i = 2; i <= Math.Sqrt(sayi); i++)
+            {
+                if (sayi % i == 0)
+                    return false;
+            }
+            return true;
+        }
+    }
+
+            #endregion
+
+
+           #region
+           // 1000 sayısının çarpanlarını yazdırmak
+
+
+           int sayi = 1000;
+           int i = 1;
+
+          Console.WriteLine(sayi + " sayısının çarpanları:");
+
+        while (i <= sayi)
+        {
+            if (sayi % i == 0)
+            {
+                Console.Write(i + " ");
+            }
+            i++;
+        }
+   
+
+
+
+           #endregion
+
+
+    #region
+    // para çekme 3 giriş hakkı var para gönderme, bakiye kontrol, çıkış
+    // 3 kere giriş hakkı
+    // para çekme, para gönderme, yükleme, bakiye kontrol, çıkış,
+
+        int hak = 3;
+        int secim = 0;
+        int bakiye = 1000;
+        int miktar = 0;
+
+        while (hak > 0)
+        {
+            Console.WriteLine("1) Para Çekme \n2) Para Gönderme \n3) Bakiye Yükleme \n4) Bakiye Kontrol \n5) Çıkış");
+            secim = int.Parse(Console.ReadLine());
+
+            switch (secim)
+            {
+                case 1:
+                    Console.WriteLine("Çekmek istediğiniz miktarı giriniz:");
+
+                x:
+                    miktar = int.Parse(Console.ReadLine());
+
+                    if (bakiye == 0)
+                    {
+                        Console.WriteLine("Bakiyeniz Yok.");
+                        break;
+                    }
+
+                    else if (miktar > bakiye)
+                    {
+                        Console.WriteLine($"Çekmek istediğiniz miktar bakiyenizden fazla. İstediğiniz: {miktar} Bakiyeniz: {bakiye}");
+                        Console.WriteLine("\nLütfen tekrar miktarı giriniz:");
+                        goto x;
+                    }
+                    else
+                    {
+                        bakiye -= miktar;
+                        Console.WriteLine($"Çektiğiniz miktar: {miktar} Kalan Bakiye: {bakiye}");
+                    }
+
+                    break;
+
+                case 2:
+                    Console.WriteLine("Göndermek istediğiniz miktarı giriniz:");
+
+                y:
+                    miktar = int.Parse(Console.ReadLine());
+
+                    if (bakiye == 0)
+                    {
+                        Console.WriteLine("Bakiyeniz Yok.");
+                        break;
+                    }
+
+                    else if (miktar > bakiye)
+                    {
+                        Console.WriteLine($"Göndermek istediğiniz miktar bakiyenizden fazla. İstediğiniz: {miktar} Bakiyeniz: {bakiye}");
+                        Console.WriteLine("\nLütfen tekrar miktarı giriniz:");
+                        goto y;
+                    }
+                    else
+                    {
+                        bakiye -= miktar;
+                        Console.WriteLine($"Gönderdiğiniz miktar: {miktar} Kalan Bakiye: {bakiye}");
+                    }
+
+                    break;
+
+                case 3:
+                    Console.WriteLine("Yüklemek istediğiniz miktarı giriniz:");
+                    miktar = int.Parse(Console.ReadLine());
+
+                    bakiye += miktar;
+                    Console.WriteLine($"Yeni Bakiyeniz: {bakiye}");
+                    break;
+
+                case 4:
+                    Console.WriteLine($"Bakiyeniz = {bakiye}");
+                    break;
+
+                case 5:
+                    hak = 0;
+                    Console.WriteLine("Güle Güle");
+                    break;
+
+                default:
+                    Console.WriteLine("Lütfen doğru seçenekleri seçiniz!..");
+                    break;
+            }
+
+            if (secim != 5) // Eğer çıkış yapılmadıysa, hakkı bir azalt
+            {
+                hak--;
+                if (hak > 0)
+                {
+                    Console.WriteLine($"Yanlış giriş! Kalan giriş hakkınız: {hak}");
+                }
+            }
+        }
+
+        if (hak == 0)
+        {
+            Console.WriteLine("Kartınız Bloke Edildi.");
+        }
+    }
+}
+
+
+    #endregion
+
+
+ 
+
+
+
+
